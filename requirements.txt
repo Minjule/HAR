@@ -1,0 +1,8 @@
+torch>=2.0.0
+torchvision
+opencv-python
+tqdm
+numpy
+scikit-learn
+requests 
+beautifulsoup4 
