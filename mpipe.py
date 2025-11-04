@@ -72,7 +72,6 @@ def main():
                 landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style()
             )
 
-        # Print or save keypoints
         if results.pose_landmarks:
             keypoints = []
             for idx, lm in enumerate(results.pose_landmarks.landmark):
@@ -82,7 +81,7 @@ def main():
             if print_keypoints:
                 np.set_printoptions(precision=3, suppress=True)
                 print(f"Frame {frame_idx}:")
-                print(np.array(keypoints)[:, :3])  # print x,y,z only
+                print(np.array(keypoints)[:, :3])  
 
             if save_keypoints:
                 row = [frame_idx]
@@ -90,7 +89,6 @@ def main():
                     row += [x, y, z, v]
                 csv_writer.writerow(row)
 
-        # FPS display
         if show_fps:
             curr_time = time.time()
             fps = 1 / (curr_time - prev_time) if prev_time > 0 else 0
