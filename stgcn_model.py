@@ -20,6 +20,20 @@ class Graph:
         self.A = self.get_adjacency()
 
     def get_adjacency(self):
+        V = self.num_node
+        A = torch.eye(V, dtype=torch.float32)
+        for i,j in self.edges:
+            A[i,j] = 1.0
+            A[j,i] = 1.0
+        # normalize adjacency (symmetric normalization)
+        D = A.sum(1)
+        D_inv_sqrt = torch.pow(D, -0.5)
+        D_inv_sqrt[torch.isinf(D_inv_sqrt)] = 0.0
+        D_mat = torch.diag(D_inv_sqrt)
+        A_norm = D_mat @ A @ D_mat
+        return A_norm, self.edges
+
+    def get_adjacency(self):
         A = torch.eye(self.num_node)
         for i,j in self.edges:
             A[i,j] = 1
