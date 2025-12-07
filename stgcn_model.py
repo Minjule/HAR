@@ -100,6 +100,6 @@ class STGCN(nn.Module):
         x = x.view(N, M * C, T, V)
         for gcn in self.st_gcn_networks:
             x = gcn(x)
-        x = F.avg_pool2d(x, x.size()[2:])
+        x = F.adaptive_avg_pool2d(x, (1, 1))
         x = x.view(N, -1)
         return self.fc(x)
