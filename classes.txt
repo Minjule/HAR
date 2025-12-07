@@ -1,0 +1,5 @@
+falling
+prolonged_inactivity
+sitting
+standing
+walking
