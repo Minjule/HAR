@@ -12,7 +12,7 @@ CAM_DEVICE = 1
 SEQ_LEN = 10
 NUM_JOINTS = 33  # MediaPipe Pose (use first 33 landmarks)
 NUM_CLASSES = 3
-CHECKPOINT = r"C:\\Users\\Acer\\Documents\\GitHub\\HAR\\checkpoints\\epoch20_valacc1.000.pt"
+CHECKPOINT = r"C:\\Users\\Acer\\Documents\\GitHub\\HAR\\stgcn_epoch10_valacc0.909.pt"
 LABELS = ["standing", "falling", "sitting"]
 
 # ---- model class (picklable / same arch as training) ----
